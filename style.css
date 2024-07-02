@@ -119,7 +119,7 @@ select {
     /* Alinhe verticalmente os checkboxes e labels */
 }
 
-.SimOuNao input[type="checkbox"] {
+.SimOuNao input[type="radio"] {
     display: flex;
     align-items: center;
     border: 30px solid var(--azul-claro);
