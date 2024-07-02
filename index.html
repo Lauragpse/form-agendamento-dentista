@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form agendar consulta</title>
-    <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 </head>
 
 <body>
@@ -13,7 +13,7 @@
     <h2>Envie seus dados para agendar um horário</h2>
     <div class="container">
         <form id="agendamentoForm" method="post">
-            <h3>Preencha suas informações:</h3>
+            <h4>Preencha suas informações:</h4>
             <label for="nome">Nome:</label>
             <input type="text" name="nome" placeholder="Digite seu nome" id="nome" required />
             <br />
@@ -29,16 +29,27 @@
             <label for="data-nascimento">Data de nascimento:</label>
             <input type="date" name="data-nascimento" placeholder="Informe sua data de nascimento" id="data-nascimento"
                 required />
+
             <br />
-            <p><strong>Disponibilidade de horário:</strong></p>
+            <br />
+            <label for="primeiraConsulta">Primeira Consulta?</label>
+            <div class="SimOuNao">
+
+                <input type="checkbox" name="primeiraConsulta" id="primeiraConsulta" value="sim" required />
+                <label for="sim">Sim</label>
+                <input type="checkbox" name="primeiraConsulta" id="primeiraConsulta" value="nao" required />
+                <label for="nao">Não</label>
+            </div>
+
+            <h4><strong>Disponibilidade de horário:</strong></h4>
 
             <label for="profissionais">Profissionais:</label>
             <select id="profissionais" name="profissionais" required>
                 <option selected disabled value="">Selecione</option>
-                <option value="dra">Dra.</option>
-                <option value="dra">Dra.</option>
-                <option value="dr">Dr.</option>
-                <option value="dr">Dr.</option>
+                <option value="dra.marcellaBarbosa">Dra. Marcella Barbosa</option>
+                <option value="dra.laraMenezes">Dra. Lara Menezes</option>
+                <option value="dr.gabrielMendes">Dr. Gabriel Mendes</option>
+                <option value="dr.matheusSantos">Dr. Matheus Santos</option>
             </select>
             <br />
             <label for="horario">Horário:</label>
@@ -61,90 +72,131 @@
             <input type="date" name="data" id="data" required />
             <br /><br />
             <div class="botao-agendamento">
-                <button type="submit" class="botao">
-                    Confirmar agendamento
-                </button>
+                <button type="submit" class="botao">Confirmar agendamento</button>
             </div>
         </form>
+
+        <footer>
+            <p>
+                <a href="https://github.com/Lauragpse" target="_blank">Desenvolvido por Laura Leite
+                    <img src="img/github.png" width="25px"> </a>
+            </p>
+        </footer>
+
     </div>
     <script>
-        document.getElementById("agendamentoForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Impede o envio do formulário
-            if (validarFormulario()) {
-                window.location.href = "pagina-destino.html"; // Redireciona para outra página
-            } else {
-                alert("Por favor, preencha todos os campos obrigatórios corretamente.");
-            }
-        });
+        document
+            .getElementById("agendamentoForm")
+            .addEventListener("submit", function (event) {
+                event.preventDefault(); // Impede o envio do formulário
+                if (validarFormulario()) {
+                    window.location.href = "pagina-destino.html"; // Redireciona para outra página
+                } else {
+                    alert(
+                        "Por favor, preencha todos os campos obrigatórios corretamente."
+                    );
+                }
+            });
 
-        document.getElementById("data").addEventListener("input", function (event) {
-            const input = event.target;
-            const date = new Date(input.value);
-            const day = date.getUTCDay();
+        document
+            .getElementById("data")
+            .addEventListener("input", function (event) {
+                const input = event.target;
+                const date = new Date(input.value);
+                const day = date.getUTCDay();
 
-            // Verifica se o dia é sábado (6) ou domingo (0)
-            if (day === 6 || day === 0) {
-                // Se for fim de semana, limpa o valor
-                input.value = "";
-                alert("Por favor, escolha um dia de semana (segunda a sexta-feira).");
-            }
-        });
+                // Verifica se o dia é sábado (6) ou domingo (0)
+                if (day === 6 || day === 0) {
+                    // Se for fim de semana, limpa o valor
+                    input.value = "";
+                    alert(
+                        "Por favor, escolha um dia de semana (segunda a sexta-feira)."
+                    );
+                }
+            });
 
         function validarFormulario() {
             const nome = document.getElementById("nome").value.trim();
             const email = document.getElementById("email").value.trim();
             const celular = document.getElementById("celular").value.trim();
             const cpf = document.getElementById("cpf").value.trim();
-            const dataNascimento = document.getElementById("data-nascimento").value.trim();
-            const profissionais = document.getElementById("profissionais").value.trim();
+            const dataNascimento = document
+                .getElementById("data-nascimento")
+                .value.trim();
+            const profissionais = document
+                .getElementById("profissionais")
+                .value.trim();
             const horario = document.getElementById("horario").value.trim();
             const data = document.getElementById("data").value.trim();
 
-            if (!nome || !email || !celular || !cpf || !dataNascimento || !profissionais || !horario || !data) {
+            if (
+                !nome ||
+                !email ||
+                !celular ||
+                !cpf ||
+                !dataNascimento ||
+                !profissionais ||
+                !horario ||
+                !data
+            ) {
                 return false;
             }
 
             return true;
         }
     </script>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
+    <!-- Code injected by live-server -->
+    <script>
+        // <![CDATA[  <-- For SVG support
+        if ("WebSocket" in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (
+                            (elem.href && typeof rel != "string") ||
+                            rel.length == 0 ||
+                            rel.toLowerCase() == "stylesheet"
+                        ) {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                            elem.href =
+                                url +
+                                (url.indexOf("?") >= 0 ? "&" : "?") +
+                                "_cacheOverride=" +
+                                new Date().valueOf();
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol =
+                    window.location.protocol === "http:" ? "ws://" : "wss://";
+                var address =
+                    protocol + window.location.host + window.location.pathname + "/ws";
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == "reload") window.location.reload();
+                    else if (msg.data == "refreshcss") refreshCSS();
+                };
+                if (
+                    sessionStorage &&
+                    !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")
+                ) {
+                    console.log("Live reload enabled.");
+                    sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+                }
+            })();
+        } else {
+            console.error(
+                "Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading."
+            );
+        }
+        // ]]>
+    </script>
 </body>
 
 </html>

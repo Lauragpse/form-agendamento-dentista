@@ -9,13 +9,12 @@
     background-image: linear-gradient(to right, var(--azul), var(--azul-claro));
     background-size: cover;
     /* Alterado para cover */
-    margin: 30px;
+    margin: 10px;
     padding: 10px;
     border-radius: 10px;
 }
 
-.box-container>p,
-.box-container>h3 {
+.box-container>p {
     margin: 15px;
     padding: 15px;
     color: var(--branco);
@@ -41,7 +40,13 @@ h2 {
 }
 
 h3 {
-    text-decoration-line: underline;
+    font-size: 30px;
+    color: var(--branco);
+
+}
+
+h4 {
+    font-size: 30px;
 }
 
 button {
@@ -68,7 +73,7 @@ button:hover {
 
 form {
     text-align: center;
-    margin: 70px;
+    margin: 20px;
     padding: 50px;
     background-image: linear-gradient(to right, var(--azul), var(--azul-claro));
     border-radius: 10px;
@@ -79,6 +84,7 @@ input,
 select {
     width: 230px;
     height: 20px;
+
 }
 
 label {
@@ -97,8 +103,38 @@ select {
     /* Ocupa toda a largura disponível */
     padding: 8px;
     /* Espaçamento interno do input */
-    border: 1px solid #ccc;
+    border: 1px solid var(--azul-claro);
     /* Borda simples */
     border-radius: 4px;
     /* Cantos arredondados */
+    border-width: 3px;
+    border-color: var(--azul-claro);
+}
+
+
+.SimOuNao {
+    display: flex;
+    /* Use flexbox para alinhar os elementos */
+    align-items: center;
+    /* Alinhe verticalmente os checkboxes e labels */
+}
+
+.SimOuNao input[type="checkbox"] {
+    display: flex;
+    align-items: center;
+    border: 30px solid var(--azul-claro);
+    border-radius: 4px;
+}
+
+footer {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 40px;
+
+}
+
+footer a {
+    color: var(--azul);
+    text-decoration: none;
 }
