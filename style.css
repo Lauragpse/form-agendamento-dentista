@@ -1,0 +1,104 @@
+:root {
+    --branco: #f0f8ff;
+    --azul: #399BF7;
+    --azul-claro: #8BD0F7;
+}
+
+.box-container {
+    text-align: center;
+    background-image: linear-gradient(to right, var(--azul), var(--azul-claro));
+    background-size: cover;
+    /* Alterado para cover */
+    margin: 30px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.box-container>p,
+.box-container>h3 {
+    margin: 15px;
+    padding: 15px;
+    color: var(--branco);
+    font-size: 25px;
+}
+
+body {
+    background-color: var(--branco);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: var(--azul);
+    font-size: 50px;
+
+}
+
+h2 {
+    text-align: center;
+    color: var(--azul-claro);
+    font-size: 40px;
+}
+
+h3 {
+    text-decoration-line: underline;
+}
+
+button {
+    background-color: var(--azul);
+    color: var(--branco);
+    padding: 15px;
+    border-radius: 10px;
+    border-color: var(--azul-claro);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-image: linear-gradient(to right, var(--azul), var(--azul-claro));
+
+}
+
+.botao-agendamento {
+    text-align: center;
+    margin-top: 50px;
+}
+
+form {
+    text-align: center;
+    margin: 70px;
+    padding: 50px;
+    background-image: linear-gradient(to right, var(--azul), var(--azul-claro));
+    border-radius: 10px;
+    color: var(--branco);
+}
+
+input,
+select {
+    width: 230px;
+    height: 20px;
+}
+
+label {
+    display: block;
+    float: left;
+    /* Posiciona o label acima do input */
+    margin-bottom: 5px;
+    margin-top: 10px;
+    /* Espaçamento abaixo do label */
+}
+
+/* Estilize o input */
+input,
+select {
+    width: 100%;
+    /* Ocupa toda a largura disponível */
+    padding: 8px;
+    /* Espaçamento interno do input */
+    border: 1px solid #ccc;
+    /* Borda simples */
+    border-radius: 4px;
+    /* Cantos arredondados */
+}
